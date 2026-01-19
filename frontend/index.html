@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bonparte Cafe | Modern Café Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="server-status online" id="serverStatus">
+            <i class="fas fa-server"></i> Server Online
+        </div>
+        <div class="nav-container">
+            <a href="#home" class="logo">The Bonparte <span>Cafe</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#specials" class="nav-link">Specials</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="admin.html" class="nav-link admin-link" target="_blank">
+                    <i class="fas fa-cog"></i> Admin
+                </a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search menu items..." class="search-input">
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Experience the Perfect Blend</h1>
+            <p class="hero-subtitle">Where tradition meets modern taste</p>
+            <div class="hero-actions">
+                <a href="#menu" class="btn-primary">Explore Our Menu</a>
+                <a href="#specials" class="btn-secondary">Today's Specials</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-subtitle">Carefully crafted dishes for every palate</p>
+            
+            <!-- Search Results Header -->
+            <div id="searchResultsHeader" class="search-results-header" style="display: none;">
+                <h3>Search Results</h3>
+                <button id="clearSearch" class="btn-clear">Clear Search</button>
+            </div>
+            
+            <div class="menu-controls">
+                <div class="menu-categories" id="menuCategories">
+                    <!-- Categories will be dynamically loaded -->
+                </div>
+                <div class="sort-controls">
+                    <select id="sortMenu" class="sort-select">
+                        <option value="category">Sort by Category</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be dynamically loaded -->
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="menuLoading" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading menu...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section id="specials" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Daily Specials</h2>
+            <p class="section-subtitle">Exclusive combos every day of the week</p>
+            
+            <div class="specials-grid" id="specialsGrid">
+                <!-- Specials will be dynamically loaded -->
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="specialsLoading" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading specials...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="section-subtitle">Join us for memorable experiences</p>
+            
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be dynamically loaded -->
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="eventsLoading" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading events...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <p class="section-subtitle">We'd love to serve you</p>
+            
+            <div class="contact-grid" id="contactGrid">
+                <!-- Contact info will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">The Bonparte <span>Cafe</span></div>
+                <p class="footer-tagline">Where every cup tells a story</p>
+                
+                <div class="social-links" id="socialLinks">
+                    <!-- Social links will be dynamically loaded -->
+                </div>
+                
+                <p class="copyright">&copy; <span id="currentYear"></span> The Bonparte Cafe. All rights reserved.</p>
+                <p class="data-update">Data last updated: <span id="lastUpdated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

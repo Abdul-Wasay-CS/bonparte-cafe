@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Live Music Night",
+      "date": "Every Friday | 7 PM",
+      "description": "Enjoy live performances by local artists with our special drinks menu.",
+      "image": "images/event-music.jpg",
+      "tag": "All Ages",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Poetry & Spoken Word",
+      "date": "Every Tuesday | 6 PM",
+      "description": "Share your words or listen to others in our cozy poetry corner.",
+      "image": "images/event-poetry.jpg",
+      "tag": "Students Welcome",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Student Night",
+      "date": "Every Thursday | All Day",
+      "description": "20% off for students with valid ID. Free Wi-Fi and study-friendly environment.",
+      "image": "images/cafe-interior.jpg",
+      "tag": "Student Exclusive",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "Family Brunch",
+      "date": "Every Sunday | 11 AM - 3 PM",
+      "description": "Special brunch menu with kids' activities and family-friendly seating.",
+      "image": "images/desi-food.jpg",
+      "tag": "Family Event",
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "address": "123 Café Street, Downtown\nCityville, CV 12345",
+  "phone": "(555) 123-4567",
+  "email": "info@bonpartecafe.com",
+  "workingHours": {
+    "weekdays": "Monday - Friday: 7 AM - 11 PM",
+    "weekends": "Saturday - Sunday: 8 AM - 12 AM"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/bonpartecafe",
+    "instagram": "https://instagram.com/bonpartecafe",
+    "twitter": "https://twitter.com/bonpartecafe",
+    "tripadvisor": "https://tripadvisor.com/bonpartecafe"
+  }
+}

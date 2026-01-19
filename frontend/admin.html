@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bonparte Cafe - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--secondary-dark), var(--primary-dark));
+            border-radius: 15px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .admin-title {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .admin-subtitle {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .admin-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .admin-nav-btn {
+            padding: 12px 25px;
+            background-color: var(--secondary-dark);
+            color: var(--text-light);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .admin-nav-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        .admin-nav-btn:hover:not(.active) {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .admin-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-card {
+            background-color: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .admin-card h3 {
+            color: var(--accent-beige);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-card h3 i {
+            color: var(--accent-gold);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--accent-beige);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-beige);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-save {
+            background-color: var(--success-green);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-save:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .btn-cancel {
+            background-color: var(--error-red);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-cancel:hover {
+            background-color: #d32f2f;
+            transform: translateY(-2px);
+        }
+
+        .btn-add {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-add:hover {
+            background-color: var(--accent-brown);
+            color: var(--text-light);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .data-table th {
+            background-color: var(--primary-dark);
+            color: var(--accent-gold);
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-light);
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .btn-edit, .btn-delete {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-edit {
+            background-color: #2196F3;
+            color: white;
+            margin-right: 5px;
+        }
+
+        .btn-edit:hover {
+            background-color: #0b7dda;
+        }
+
+        .btn-delete {
+            background-color: var(--error-red);
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .json-editor {
+            margin-top: 20px;
+        }
+
+        .json-textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 15px;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        .back-to-site {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-to-site:hover {
+            color: var(--accent-beige);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .admin-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">The Bonparte Cafe - Admin Panel</h1>
+            <p class="admin-subtitle">Manage menu, specials, events, and contact information</p>
+            
+            <div class="admin-nav">
+                <button class="admin-nav-btn active" data-section="menu">
+                    <i class="fas fa-utensils"></i> Menu
+                </button>
+                <button class="admin-nav-btn" data-section="specials">
+                    <i class="fas fa-star"></i> Specials
+                </button>
+                <button class="admin-nav-btn" data-section="events">
+                    <i class="fas fa-calendar-alt"></i> Events
+                </button>
+                <button class="admin-nav-btn" data-section="contact">
+                    <i class="fas fa-address-book"></i> Contact
+                </button>
+                <button class="admin-nav-btn" data-section="json">
+                    <i class="fas fa-code"></i> JSON Editor
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Management -->
+        <div id="menuSection" class="admin-section active">
+            <div class="admin-card">
+                <h3><i class="fas fa-plus-circle"></i> Add New Menu Item</h3>
+                <form id="menuForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name</label>
+                            <input type="text" id="itemName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category</label>
+                            <select id="itemCategory" class="form-control" required>
+                                <option value="">Select Category</option>
+                                <option value="Burgers">Burgers</option>
+                                <option value="Fries">Fries</option>
+                                <option value="Tea">Tea</option>
+                                <option value="Coffee">Coffee</option>
+                                <option value="Desi Meals">Desi Meals</option>
+                                <option value="Fancy Meals">Fancy Meals</option>
+                                <option value="Desserts">Desserts</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemPrice">Price ($)</label>
+                            <input type="number" id="itemPrice" class="form-control" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemImage">Image Path</label>
+                            <input type="text" id="itemImage" class="form-control" 
+                                   value="images/burger.jpg" required>
+                            <small style="color: var(--text-gray); font-size: 0.8rem;">
+                                Example: images/burger.jpg, images/coffee.jpg
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Item
+                        </button>
+                        <button type="button" class="btn-cancel" onclick="resetMenuForm()">
+                            <i class="fas fa-times"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <h3><i class="fas fa-list"></i> Current Menu Items</h3>
+                <div id="menuTableContainer">
+                    <!-- Menu items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Specials Management -->
+        <div id="specialsSection" class="admin-section">
+            <div class="admin-card">
+                <h3><i class="fas fa-plus-circle"></i> Add New Special</h3>
+                <form id="specialForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialDay">Day</label>
+                            <select id="specialDay" class="form-control" required>
+                                <option value="">Select Day</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialName">Combo Name</label>
+                            <input type="text" id="specialName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialItems">Items Included</label>
+                            <input type="text" id="specialItems" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialPrice">Price ($)</label>
+                            <input type="number" id="specialPrice" class="form-control" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialDiscount">Discount</label>
+                            <input type="text" id="specialDiscount" class="form-control" value="15%" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialDescription">Description</label>
+                        <textarea id="specialDescription" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Special
+                        </button>
+                        <button type="button" class="btn-cancel" onclick="resetSpecialForm()">
+                            <i class="fas fa-times"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <h3><i class="fas fa-star"></i> Current Specials</h3>
+                <div id="specialsTableContainer">
+                    <!-- Specials will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Management -->
+        <div id="eventsSection" class="admin-section">
+            <div class="admin-card">
+                <h3><i class="fas fa-plus-circle"></i> Add New Event</h3>
+                <form id="eventForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventName">Event Name</label>
+                            <input type="text" id="eventName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Date/Time</label>
+                            <input type="text" id="eventDate" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventImage">Image Path</label>
+                            <input type="text" id="eventImage" class="form-control" 
+                                   value="images/event-music.jpg" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTag">Tag</label>
+                            <input type="text" id="eventTag" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="eventFeatured"> Featured Event
+                        </label>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Event
+                        </button>
+                        <button type="button" class="btn-cancel" onclick="resetEventForm()">
+                            <i class="fas fa-times"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <h3><i class="fas fa-calendar-alt"></i> Current Events</h3>
+                <div id="eventsTableContainer">
+                    <!-- Events will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Management -->
+        <div id="contactSection" class="admin-section">
+            <div class="admin-card">
+                <h3><i class="fas fa-address-card"></i> Contact Information</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactAddress">Address</label>
+                        <textarea id="contactAddress" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="text" id="contactPhone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactWeekdays">Weekday Hours</label>
+                            <input type="text" id="contactWeekdays" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactWeekends">Weekend Hours</label>
+                            <input type="text" id="contactWeekends" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: var(--accent-beige); margin: 30px 0 20px;">Social Media Links</h4>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="socialFacebook">Facebook URL</label>
+                            <input type="url" id="socialFacebook" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="socialInstagram">Instagram URL</label>
+                            <input type="url" id="socialInstagram" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="socialTwitter">Twitter URL</label>
+                            <input type="url" id="socialTwitter" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="socialTripadvisor">TripAdvisor URL</label>
+                            <input type="url" id="socialTripadvisor" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Contact Info
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- JSON Editor -->
+        <div id="jsonSection" class="admin-section">
+            <div class="admin-card">
+                <h3><i class="fas fa-code"></i> Direct JSON Editor</h3>
+                <p style="color: var(--text-gray); margin-bottom: 20px;">
+                    Edit JSON files directly. Changes are saved immediately.
+                </p>
+                
+                <div class="form-group">
+                    <label for="jsonFileSelect">Select JSON File</label>
+                    <select id="jsonFileSelect" class="form-control">
+                        <option value="menu.json">menu.json</option>
+                        <option value="specials.json">specials.json</option>
+                        <option value="events.json">events.json</option>
+                        <option value="contact.json">contact.json</option>
+                    </select>
+                </div>
+                
+                <div class="json-editor">
+                    <textarea id="jsonEditor" class="json-textarea"></textarea>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="button" class="btn-save" onclick="saveJSON()">
+                        <i class="fas fa-save"></i> Save JSON
+                    </button>
+                    <button type="button" class="btn-cancel" onclick="loadSelectedJSON()">
+                        <i class="fas fa-sync"></i> Reload
+                    </button>
+                </div>
+                
+                <div id="jsonStatus" style="margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-site">
+            <i class="fas fa-arrow-left"></i> Back to Main Site
+        </a>
+    </div>
+
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Saving changes...</div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "specials": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "name": "Student Combo",
+      "items": "Burger + Fries + Drink",
+      "price": 12.99,
+      "discount": "15%",
+      "description": "Perfect combo for students on budget"
+    },
+    {
+      "id": 2,
+      "day": "Tuesday",
+      "name": "Tea Lovers Combo",
+      "items": "Any 2 Teas + Dessert",
+      "price": 9.99,
+      "discount": "20%",
+      "description": "Relax with your favorite teas and sweet treat"
+    },
+    {
+      "id": 3,
+      "day": "Wednesday",
+      "name": "Family Feast",
+      "items": "2 Desi Meals + Drinks + Dessert",
+      "price": 29.99,
+      "discount": "25%",
+      "description": "Perfect for family dinner night"
+    },
+    {
+      "id": 4,
+      "day": "Thursday",
+      "name": "Coffee & Cake Deal",
+      "items": "Any Coffee + Slice of Cake",
+      "price": 8.99,
+      "discount": "10%",
+      "description": "Mid-week coffee break special"
+    },
+    {
+      "id": 5,
+      "day": "Friday",
+      "name": "Friends Platter Combo",
+      "items": "Mix of Starters & Drinks for 4",
+      "price": 39.99,
+      "discount": "30%",
+      "description": "Perfect for Friday night with friends"
+    },
+    {
+      "id": 6,
+      "day": "Saturday",
+      "name": "Weekend BBQ Combo",
+      "items": "Grilled Specialties with Sides",
+      "price": 24.99,
+      "discount": "20%",
+      "description": "Weekend barbecue special"
+    },
+    {
+      "id": 7,
+      "day": "Sunday",
+      "name": "Brunch Special Platter",
+      "items": "Breakfast Items + Coffee/Tea",
+      "price": 16.99,
+      "discount": "15%",
+      "description": "Lazy Sunday brunch special"
+    }
+  ]
+}

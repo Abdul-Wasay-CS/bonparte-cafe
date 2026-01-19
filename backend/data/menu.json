@@ -1,0 +1,189 @@
+{
+  "categories": [
+    "Burgers",
+    "Fries",
+    "Tea",
+    "Coffee",
+    "Desi Meals",
+    "Fancy Meals",
+    "Desserts"
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Zinger Burger",
+      "category": "Burgers",
+      "price": 8.99,
+      "description": "Crispy chicken burger with special sauce",
+      "image": "images/burger.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Beef Cheese Burger",
+      "category": "Burgers",
+      "price": 9.99,
+      "description": "Juicy beef patty with melted cheese",
+      "image": "images/burger.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Chicken Grilled Burger",
+      "category": "Burgers",
+      "price": 8.49,
+      "description": "Grilled chicken breast with fresh veggies",
+      "image": "images/burger.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Classic Fries",
+      "category": "Fries",
+      "price": 3.99,
+      "description": "Golden crispy french fries",
+      "image": "images/fries.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Loaded Fries",
+      "category": "Fries",
+      "price": 5.99,
+      "description": "Fries topped with cheese and sauces",
+      "image": "images/fries.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Karak Chai",
+      "category": "Tea",
+      "price": 2.49,
+      "description": "Strong traditional tea with spices",
+      "image": "images/tea.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Green Tea",
+      "category": "Tea",
+      "price": 2.99,
+      "description": "Healthy antioxidant-rich tea",
+      "image": "images/tea.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Kashmiri Chai",
+      "category": "Tea",
+      "price": 3.49,
+      "description": "Pink tea with nuts and cardamom",
+      "image": "images/tea.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Espresso",
+      "category": "Coffee",
+      "price": 2.99,
+      "description": "Strong concentrated coffee",
+      "image": "images/coffee.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Cappuccino",
+      "category": "Coffee",
+      "price": 3.99,
+      "description": "Espresso with steamed milk foam",
+      "image": "images/coffee.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Latte",
+      "category": "Coffee",
+      "price": 4.49,
+      "description": "Smooth coffee with steamed milk",
+      "image": "images/coffee.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Iced Coffee",
+      "category": "Coffee",
+      "price": 4.99,
+      "description": "Chilled coffee with ice",
+      "image": "images/coffee.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Chicken Biryani",
+      "category": "Desi Meals",
+      "price": 12.99,
+      "description": "Fragrant rice with spicy chicken",
+      "image": "images/desi-food.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Beef Karahi",
+      "category": "Desi Meals",
+      "price": 14.99,
+      "description": "Spicy beef curry in karahi style",
+      "image": "images/desi-food.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Butter Chicken",
+      "category": "Desi Meals",
+      "price": 13.99,
+      "description": "Creamy tomato-based chicken curry",
+      "image": "images/desi-food.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Dal Makhni",
+      "category": "Desi Meals",
+      "price": 10.99,
+      "description": "Creamy black lentils",
+      "image": "images/desi-food.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Grilled Salmon",
+      "category": "Fancy Meals",
+      "price": 18.99,
+      "description": "Salmon fillet with lemon butter sauce",
+      "image": "images/fancy-food.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Alfredo Pasta",
+      "category": "Fancy Meals",
+      "price": 15.99,
+      "description": "Creamy pasta with parmesan",
+      "image": "images/fancy-food.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Steak with Mushroom Sauce",
+      "category": "Fancy Meals",
+      "price": 22.99,
+      "description": "Juicy steak with creamy mushroom sauce",
+      "image": "images/fancy-food.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Chocolate Lava Cake",
+      "category": "Desserts",
+      "price": 6.99,
+      "description": "Warm chocolate cake with molten center",
+      "image": "images/dessert.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Cheesecake",
+      "category": "Desserts",
+      "price": 7.99,
+      "description": "Creamy New York style cheesecake",
+      "image": "images/dessert.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Brownies",
+      "category": "Desserts",
+      "price": 5.99,
+      "description": "Fudgy chocolate brownies",
+      "image": "images/dessert.jpg"
+    }
+  ]
+}
